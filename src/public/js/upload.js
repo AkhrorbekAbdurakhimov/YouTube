@@ -88,7 +88,7 @@ function videosRenderer(array) {
     array.map(video => {
         string += `
             <li class="video-item">
-                <video src=${'vids/' + video.video_link} controls></video>
+                <video src=${'/vids/' + video.video_link} controls></video>
                 <p class="content" data-id=${video.video_id} contenteditable="true">${video.title}</p>
                 <img src="./img/delete.png" width="25px" alt="upload" class="delete-icon" data-id=${video.video_id}>
             </li>

@@ -8,21 +8,21 @@ const iframeList = document.querySelector('.iframes-list'),
 let user = window.localStorage.getItem('user')
 user = user ? JSON.parse(user) : {}
 
-if (user.avatar_link) avatarImage.src = 'imgs/' + user.avatar_link
+if (user.avatar_link) avatarImage.src = '/imgs/' + user.avatar_link
 
 function videosRenderer(array) {
     let string = ""
     array.map(video => {
         string += `
             <li class="iframe">
-                <video src=${'vids/' + video.video_link} controls></video>
+                <video src=${'/vids/' + video.video_link} controls></video>
                 <div class="iframe-footer">
-                    <img src=${'imgs/' + video.user.avatar_link} alt="channel-icon">
+                    <img src=${'/imgs/' + video.user.avatar_link} alt="channel-icon">
                     <div class="iframe-footer-text">
                         <h2 class="channel-name">${video.user.username[0].toUpperCase() + video.user.username.slice(1, video.user.username.length)}</h2>
                         <h3 class="iframe-title">${video.title}</h3>
                         <time class="uploaded-time">${video.time}</time>
-                        <a class="download" href="download?link=${video.video_link}"><img src="./img/download.png" /></a>
+                        <a class="download" href="/download?link=${video.video_link}"><img src="./img/download.png" /></a>
                     </div>                  
                 </div>
             </li> 
@@ -42,7 +42,7 @@ function usersRenderer(array) {
     array.map(user => {
         string += `
             <li class="channel" data-id=${user.user_id}><a href="#">
-                <img src=${'imgs/' + user.avatar_link} alt="channel-icon" width="30px" height="30px">
+                <img src=${'/imgs/' + user.avatar_link} alt="channel-icon" width="30px" height="30px">
                 <span>${user.username}</span>
             </a></li>
         `
